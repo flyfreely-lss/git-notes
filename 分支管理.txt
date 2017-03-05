@@ -31,6 +31,13 @@ git log --graph --pretty=oneline --abbrev-commit 分支合并图简洁版
 
 你和你的小伙伴们每个人都在dev分支上干活，每个人都有自己的分支，时不时地往dev分支上合并就可以了。
 
+小结
+
+Git分支十分强大，在团队开发中应该充分应用。
+
+合并分支时，加上--no-ff参数就可以用普通模式合并，合并后的历史有分支，能看出来曾经做过合并，而fast forward合并就看不出来曾经做过合并。
+git merge --no-ff -m "merge with no-ff" dev
+
 4. bug分支
 
 修复bug时，我们会通过创建新的bug分支进行修复，然后合并，最后删除；
@@ -39,3 +46,23 @@ git log --graph --pretty=oneline --abbrev-commit 分支合并图简洁版
 
 git stash list 查看所有stash内容
 git stash pop = git stash apply + git stash drop(恢复工作现场 + 删除stash内容)
+
+5. Feature分支
+
+开发一个新feature，最好新建一个分支；
+
+如果要丢弃一个没有被合并过的分支，可以通过git branch -D <name>强行删除。
+
+6. 多人协作
+
+查看远程库信息，使用git remote -v；
+
+本地新建的分支如果不推送到远程，对其他人就是不可见的；
+
+从本地推送分支，使用git push origin branch-name，如果推送失败，先用git pull抓取远程的新提交；
+
+在本地创建和远程分支对应的分支，使用git checkout -b branch-name origin/branch-name，本地和远程分支的名称最好一致；
+
+建立本地分支和远程分支的关联，使用git branch --set-upstream branch-name origin/branch-name；
+
+从远程抓取分支，使用git pull，如果有冲突，要先处理冲突。
