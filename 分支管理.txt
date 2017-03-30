@@ -14,6 +14,10 @@ Git鼓励大量使用分支：
 
 删除分支：git branch -d <name>
 
+git clone非master分支的代码：
+	(1) git branch -a #查看远程分支 
+	(2) git checkout origin/xnlp-v1.x
+
 2. 解决冲突
 
 当Git无法自动合并分支时，就必须首先解决冲突。解决冲突后，再提交，合并完成。
