@@ -14,6 +14,8 @@ Git鼓励大量使用分支：
 
 删除分支：git branch -d <name>
 
+删除远程分支：git push origin --delete <branchName>
+
 git clone非master分支的代码：
 	(1) git branch -a #查看远程分支 
 	(2) git checkout origin/xnlp-v1.x
@@ -24,7 +26,15 @@ git合并其它分支文件
 	(3) git checkout test a.txt #去掉-p参数，新增该a.txt文件
 	(4) 记得将合并回来的内容提交并推送到远程分支
 
-删除远程分支：git push origin --delete <branchName>
+git合并某个分支上单个commit
+	(1) git checkout <branchname> #切换到你要合并到的分支
+	(2) git cherry-pick 62ecb3  #cherry-pick择优挑选
+	(3) 推送到远程分支(如果不能合并，需要手动解决冲突)
+
+合并某个分支上的一系列commits
+	假设你需要合并feature分支的commit76cada ~62ecb3 到master分支。
+	(1) git checkout -b newbranch 62ecb3 #基于feature创建一个新的分支，并指明新分支的最后一个commit
+	(2) git rebase --onto master 76cada^  #rebase这个新分支的commit到master（--ontomaster）。76cada^指明你想从哪个特定的commit开始
 
 2. 解决冲突
 
@@ -54,7 +64,9 @@ git merge --no-ff -m "merge with no-ff" dev
 
 修复bug时，我们会通过创建新的bug分支进行修复，然后合并，最后删除；
 
-当手头工作没有完成时，先把工作现场git stash一下，然后去修复bug，修复后，再git stash pop，回到工作现场。
+当手头工作没有完成时，需要去其他分支修复bug
+(1) git stash  #先把工作现场git stash一下
+(2) git stash pop  #修复完bug，回到工作现场
 
 git stash list 查看所有stash内容
 git stash pop = git stash apply + git stash drop(恢复工作现场 + 删除stash内容)
@@ -63,7 +75,7 @@ git stash pop = git stash apply + git stash drop(恢复工作现场 + 删除stas
 
 开发一个新feature，最好新建一个分支；
 
-如果要丢弃一个没有被合并过的分支，可以通过git branch -D <name>强行删除。
+git branch -D <name>  #强行删除一个没有被合并过的分支
 
 6. 多人协作
 
