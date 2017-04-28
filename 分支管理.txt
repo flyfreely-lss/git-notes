@@ -14,11 +14,13 @@ Git鼓励大量使用分支：
 
 删除分支：git branch -d <name>
 
+git branch -D <name>  #强行删除一个没有被合并过的分支
+
 删除远程分支：git push origin --delete <branchName>
 
 git clone非master分支的代码：
 	(1) git branch -a #查看远程分支 
-	(2) git checkout origin/xnlp-v1.x
+	(2) git checkout -b xnlp-v1.0 origin/xnlp-v1.x  #在切换分支的同时建立本地分支和远程分支的映射
 
 git合并其它分支文件
 	(1) git checkout master #切换到你要合并到的分支
