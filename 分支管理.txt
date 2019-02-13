@@ -10,17 +10,23 @@ Git鼓励大量使用分支：
 
 创建+切换分支：git checkout -b <name>
 
+切换到本地dev分支，并与远程建立track关系：git checkout -b dev origin/dev
+
 合并某分支到当前分支：git merge <name>
 
 删除分支：git branch -d <name>
 
 git branch -D <name>  #强行删除一个没有被合并过的分支
 
+查看本地分支与远程分支的对应关系：git branch -vv
+
+本地已存在分支和远程分支建立关联：git branch --set-upstream dev origin/dev  git branch -u origin/dev
+
 删除远程分支：git push origin --delete <branchName>
 
 git clone非master分支的代码：
 	(1) git branch -a #查看远程分支 
-	(2) git checkout -b xnlp-v1.0 origin/xnlp-v1.x  #在切换分支的同时建立本地分支和远程分支的映射
+	(2) git checkout -b dev origin/dev  #在切换分支的同时建立本地分支和远程分支的映射
 
 git合并其它分支文件
 	(1) git checkout master #切换到你要合并到的分支
@@ -70,6 +76,7 @@ git merge --no-ff -m "merge with no-ff" dev
 (1) git stash  #先把工作现场git stash一下
 (2) git stash pop  #修复完bug，回到工作现场
 
+git stash save "message..." (1)命令的完整版
 git stash list 查看所有stash内容
 git stash pop = git stash apply + git stash drop(恢复工作现场 + 删除stash内容)
 
