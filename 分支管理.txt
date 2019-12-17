@@ -44,6 +44,20 @@ git合并某个分支上单个commit
 	(1) git checkout -b newbranch 62ecb3 #基于feature创建一个新的分支，并指明新分支的最后一个commit
 	(2) git rebase --onto master 76cada^  #rebase这个新分支的commit到master（--ontomaster）。76cada^指明你想从哪个特定的commit开始
 
+丢弃本地的所有更改
+```
+git checkout . && git clean -xdf #将本地文件的更改返回到原来的状态，同时删除新添加的文件/目录
+
+git checkout . #本地所有修改的。没有的提交的，都返回到原来的状态
+git reset --hard HASH #返回到某个节点，不保留修改。
+git reset --soft HASH #返回到某个节点。保留修改
+git clean -df #返回到某个节点
+git clean 参数
+    -n 显示 将要 删除的 文件 和  目录
+    -f 删除 文件
+    -df 删除 文件 和 目录
+```
+
 2. 解决冲突
 
 当Git无法自动合并分支时，就必须首先解决冲突。解决冲突后，再提交，合并完成。
