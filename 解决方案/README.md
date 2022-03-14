@@ -5,4 +5,5 @@
 3. 标签管理
 4. 统计代码修改行数
 5. 跨仓库 `cherry-pick` 代码 https://www.zybuluo.com/aqa510415008/note/1428756
+6. 代码回退
 
