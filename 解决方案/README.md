@@ -7,7 +7,8 @@
 5. 跨仓库 `cherry-pick` 代码 https://www.zybuluo.com/aqa510415008/note/1428756
 6. 本地切换新分支
 7. 删除分支
-8. 代码回退
+8. 使用 `stash` 暂存代码
+9. 代码回退
 
 
 
