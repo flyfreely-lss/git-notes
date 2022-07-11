@@ -1,10 +1,10 @@
 # git 解决方案列表
 
 1. 本地创建一个新分支并推送到远程
-2. `.gitignore`文件不起作用 https://juejin.cn/post/6844903598522908686
+2. `.gitignore`文件不起作用 
 3. 标签管理
 4. 统计代码修改行数
-5. 跨仓库 `cherry-pick` 代码 https://www.zybuluo.com/aqa510415008/note/1428756
+5. 跨仓库 `cherry-pick` 代码 
 6. 本地切换新分支
 7. 删除分支
 8. 使用 `stash` 贮藏代码
@@ -13,5 +13,9 @@
 11. 撤销操作之使用`checkout`撤销工作区文件的修改
 12. 撤销操作之使用`revert`还原提交
 13. Git的工作区、暂存区、版本库及工作流程
-13. Git 的提交规范 🆕
+13. Git 的提交规范
 
+**参考资料**
+
+1. https://juejin.cn/post/6844903598522908686
+2. https://www.zybuluo.com/aqa510415008/note/1428756
